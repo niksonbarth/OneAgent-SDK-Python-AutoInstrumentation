@@ -2,18 +2,22 @@ from setuptools import setup, find_packages
 
 setup(
     name="autodynatrace",
-    version="1.0.81",
+    version="1.0.82",
     packages=find_packages(),
     package_data={"autodynatrace": ["wrappers/*"]},
-    install_requires=["wrapt>=1.11.2", "oneagent-sdk>=1.3.0", "six>=1.10.0", "autowrapt>=1.0"],
+    install_requires=[
+        "wrapt>=1.11.2", "oneagent-sdk>=1.3.0", "six>=1.10.0", "autowrapt>=1.0"
+    ],
     tests_require=["pytest", "mock", "tox", "django"],
     entry_points={"autodynatrace": ["string = autodynatrace:load"]},
     python_requires=">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*",
     author="David Lopes",
     author_email="david.lopes@dynatrace.com",
     description="Auto instrumentation for the OneAgent SDK",
-    long_description="The autodynatrace package will auto instrument your python apps",
-    url="https://github.com/dlopes7/autodynatrace",
+    long_description=
+    "The autodynatrace package will auto instrument your python apps",
+    url=
+    "https://github.com/niksonbarth/OneAgent-SDK-Python-AutoInstrumentation",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -31,5 +35,8 @@ setup(
         "Operating System :: Microsoft :: Windows",
         "Topic :: System :: Monitoring",
     ],
-    project_urls={"Issue Tracker": "https://github.com/dlopes7/autodynatrace/issues"},
+    project_urls={
+        "Issue Tracker":
+        "https://github.com/niksonbarth/OneAgent-SDK-Python-AutoInstrumentation/issues"
+    },
 )
