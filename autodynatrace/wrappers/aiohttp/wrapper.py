@@ -15,8 +15,12 @@ def instrument():
         headers = dict(kwargs.get("headers", {}))
 
         with sdk.trace_outgoing_web_request(url, method, headers) as tracer:
-            tag = tracer.outgoing_dynatrace_string_tag.decode()
-            logger.debug("dynatrace - tracing {} '{}' with tag '{}'".format(method, url, tag))
+            tag = tracer.outgoing_dynatrace_string_tag
+            if not isinstance(tracer.outgoing_dynatrace_string_tag, str):
+                tag = tag.decode()
+
+            logger.debug("dynatrace - tracing {} '{}' with tag '{}'".format(
+                method, url, tag))
             headers.update({DYNATRACE_HTTP_HEADER_NAME: tag})
             kwargs["headers"] = headers
 
