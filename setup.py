@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ecs-autodynatrace",
-    version="1.0.82",
+    version="1.0.83",
     packages=find_packages(),
     package_data={"autodynatrace": ["wrappers/*"]},
     install_requires=[
