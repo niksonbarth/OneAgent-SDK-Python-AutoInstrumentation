@@ -16,7 +16,7 @@ def instrument():
 
         with sdk.trace_outgoing_web_request(url, method, headers) as tracer:
             tag = tracer.outgoing_dynatrace_string_tag
-            if not isinstance(tracer.outgoing_dynatrace_string_tag, str):
+            if isinstance(tag, bytes):
                 tag = tag.decode()
 
             logger.debug("dynatrace - tracing {} '{}' with tag '{}'".format(
